@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.OptionalInt;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +7,20 @@ public class Main {
         task2();
         task3();
         task4();
+        task2_1();
+        task2_2();
+        task2_3();
+        task2_4();
+
+    }
+    // Объявить метод «сгенерироватьМассив»
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
     }
 
     public static void task1 () {
@@ -80,5 +95,82 @@ public class Main {
         }
         System.out.println(Arrays.toString(a));
     }
+    public static void task2_1 () {
+        System.out.println("Задача 2_1");
+        int[] arr = generateRandomArray();
+        // int[] arr — объявление массива
+        // generateRandomArray() — вызов метода «сгенерироватьМассив»
+        // Пишем код для задачи 2_1
+            //через index
 
-}
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            //System.out.println(arr[i]);
+            sum = sum + arr[i];
+        }
+        System.out.println("Сумма трат за месяц составила " +sum+ " рублей(index)");
+
+            //через for each
+        int sum2 = 0;
+        for (int element : arr ) {
+            sum2 += element;
+        }
+        System.out.println("Сумма трат за месяц составила " +sum2+ " рублей(for-each)");
+
+            //Arrays.stream
+        int sum3 = Arrays.stream(arr).sum();
+
+        System.out.println("Сумма трат за месяц составила " +sum3+ " рублей(Arrays.stream)");
+
+    }
+    public static void task2_2 () {
+        System.out.println("Задача 2_2");
+        int[] arr = generateRandomArray();
+        // int[] arr — объявление массива
+        // generateRandomArray() — вызов метода «сгенерироватьМассив»
+        // Пишем код для задачи 2_2
+        int max = arr[0];
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            //System.out.println(arr[i]);
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        System.out.println("Минимальная сумма трат за день составила " +min+" рублей. Максимальная сумма трат за день составила " +max+ " рублей");
+    }
+    public static void task2_3 () {
+        System.out.println("Задача 2_3");
+        int[] arr = generateRandomArray();
+        // int[] arr — объявление массива
+        // generateRandomArray() — вызов метода «сгенерироватьМассив»
+        // Пишем код для задачи 2_3
+        float sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            //System.out.println(arr[i]);
+            sum = sum + arr[i];
+
+        }
+         sum = sum / arr.length;
+        System.out.println("Средняя cумма трат за месяц составила " +sum+ " рублей(index)");
+
+    }
+    public static void task2_4 () {
+        System.out.println("Задача 2_4");
+       // Пишем код для задачи 2_4
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = reverseFullName.length-1; i >= 0; i--) {
+            System.out.print(reverseFullName[i] + "");
+        }
+
+        }
+
+
+
+
+    }
+
+
